@@ -4,10 +4,13 @@ class Problem(object):
     def __init__(self):
         self.solutions = []
         self.testcases = []
+        self.import_testcases()
+
+    def import_testcases(self):
+        raise NotImplementedError
 
     def add_testcase(self, test_in, test_out):
         self.testcases.append((test_in, test_out))
-
 
     def evaluate(self):
         passed = 0

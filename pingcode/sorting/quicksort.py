@@ -3,12 +3,11 @@
 import random
 from pingcode.util import Problem
 
-class QuickSort(Problem):
-    def __init__(self):
-        Problem.__init__(self)
-        a = [4, 2, 6, 3 ,5, 7, 1 ,9]
-        self.add_testcase(a, sorted(a))
 
+class QuickSort(Problem):
+    def import_testcases(self):
+        a = [4, 2, 6, 3, 5, 7, 1, 9]
+        self.add_testcase(a, sorted(a))
 
     def quicksort(self, nums):
         if not nums:

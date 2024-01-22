@@ -1,0 +1,7 @@
+
+# pip install
+./*.egg-info
+
+# python cache
+**/__pycache__
+
