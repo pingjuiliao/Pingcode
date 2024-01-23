@@ -4,6 +4,7 @@ import argparse
 
 algorithm_list = {
     'quicksort': 'pingcode.sorting.quicksort.QuickSort',
+    'mergesort': 'pingcode.sorting.mergesort.MergeSort',
     'dijkstra': 'pingcode.graph.shortest_path.ShortestPath'
 }
 
