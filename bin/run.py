@@ -3,9 +3,10 @@
 import argparse
 
 algorithm_list = {
-    'quicksort': 'pingcode.sorting.quicksort.QuickSort',
+    'dijkstra': 'pingcode.graph.shortest_path.ShortestPath',
+    'kbest_pair': 'pingcode.kbest.kbest_pair.KBestPairFromTwoList',
     'mergesort': 'pingcode.sorting.mergesort.MergeSort',
-    'dijkstra': 'pingcode.graph.shortest_path.ShortestPath'
+    'quicksort': 'pingcode.sorting.quicksort.QuickSort',
 }
 
 
