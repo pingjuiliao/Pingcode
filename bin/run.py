@@ -3,8 +3,10 @@
 import argparse
 
 algorithm_list = {
+    'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
     'dijkstra': 'pingcode.graph.shortest_path.ShortestPath',
     'kbest_pair': 'pingcode.kbest.kbest_pair.KBestPairFromTwoList',
+    'dream_team': 'pingcode.kbest.dream_team.DreamTeam',
     'mergesort': 'pingcode.sorting.mergesort.MergeSort',
     'quicksort': 'pingcode.sorting.quicksort.QuickSort',
 }
@@ -15,6 +17,7 @@ def algorithm_class_import(name):
     module = __import__(module_name, fromlist=[alg_class_name])
     alg_class = getattr(module, alg_class_name)
     return alg_class
+
 
 def parse_args():
     p = argparse.ArgumentParser()
