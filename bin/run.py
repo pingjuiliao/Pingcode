@@ -4,6 +4,7 @@ import argparse
 
 algorithm_list = {
     'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
+    'bitstring': 'pingcode.dynamic_programming.string_combination.BitstringNoConsecutiveOnes',
     'dijkstra': 'pingcode.graph.shortest_path.ShortestPath',
     'kbest_pair': 'pingcode.kbest.kbest_pair.KBestPairFromTwoList',
     'dream_team': 'pingcode.kbest.dream_team.DreamTeam',
