@@ -2,7 +2,10 @@
 
 import argparse
 
+
 algorithm_list = {
+    'num_bst': 'pingcode.dynamic_programming.catalan.NumBST',
+    'knapsack1': 'pingcode.dynamic_programming.knapsack.KnapsackUnboundedProduct',
     'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
     'bitstring': 'pingcode.dynamic_programming.string_combination.BitstringNoConsecutiveOnes',
     'dijkstra': 'pingcode.graph.shortest_path.ShortestPath',
@@ -21,10 +24,22 @@ def algorithm_class_import(name):
 
 
 def parse_args():
-    p = argparse.ArgumentParser()
-    p.add_argument('-a', '--alg', dest='algorithm', required=True)
+    p = argparse.ArgumentParser(prog='run.py')
+    arg_action_group = p.add_mutually_exclusive_group(required=True)
+    arg_action_group.add_argument('-a', '--alg', dest='algorithm')
+    arg_action_group.add_argument('-l', '--list', action='store_true')
     args = p.parse_args()
 
+    if args.list:
+        print('Available options:')
+        for k in algorithm_list.keys():
+            print(f'= {k} |')
+        return
+    # mutually exclusive group should
+    assert(args.algorithm is not None)
+    run_algorithm(args)
+
+def run_algorithm(args):
     if args.algorithm not in algorithm_list:
         print(f'[Error] {args.algorithm} not found.')
         return
