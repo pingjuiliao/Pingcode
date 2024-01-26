@@ -26,6 +26,26 @@ class KnapsackUnboundedProduct(Problem):
 
         return max_values[capacity], pick_list
 
+    def knapsack_optimized(self, capacity, products):
+        max_values = [0 for _ in range(capacity + 1)]
+        back = [None for _ in range(capacity + 1)]
+        for product_id, product in enumerate(products):
+            weight, value = product
+            for n in range(weight, capacity + 1):
+                if max_values[n] < max_values[n - weight] + value:
+                    max_values[n] = max_values[n - weight] + value
+                    back[n] = product_id
+
+        pick_list = [0 for _ in range(len(products))]
+        curr = capacity
+        while curr > 0:
+            pick = back[curr]
+            pick_list[pick] += 1
+            weight, value = products[pick]
+            curr -= weight
+
+        return max_values[capacity], pick_list
+
     def import_testcases(self):
         test_in = (3, [(1, 2), (2, 5)])
         test_out = (7, [1, 1])
@@ -41,13 +61,38 @@ class KnapsackUnboundedProduct(Problem):
 
     def solve(self, test_in):
         capacity, store = test_in
-        return self.knapsack(capacity, store)
+        return self.knapsack_optimized(capacity, store)
 
 
 class KnapsackBoundedProduct(Problem):
     def knapsack(self, capacity, products):
-        for product_id, product in enumerate():
-            pass
+        max_values = [[0 for _ in range(capacity + 1)]
+                      for _ in range(len(products))]
+        back = [[0 for _ in range(capacity + 1)] for _ in range(len(products))]
+        for product_id, product in enumerate(products):
+            weight, value, num_storage = product
+            for n in range(weight, capacity + 1):
+
+                # default: as if the new product is not introduced
+                max_values[product_id][n] = max_values[product_id - 1][n]
+                # back[prodict_id][n] = 0
+
+                for i in range(1, num_storage + 1):
+                    if weight * i > n:
+                        break
+                    new_value = (max_values[product_id - 1][n - weight * i]
+                                 + value * i)
+                    if max_values[product_id][n] < new_value:
+                        max_values[product_id][n] = new_value
+                        back[product_id][n] = i
+
+        pick_list = [0 for _ in range(len(products))]
+        n = capacity
+        for product_id in range(len(products) - 1, -1, -1):
+            pick_list[product_id] += back[product_id][n]
+            n = n - back[product_id][n] * products[product_id][0]
+
+        return max_values[len(products) - 1][capacity], pick_list
 
     def import_testcases(self):
         test_in = (3, [(2, 4, 2), (3, 5, 3)])

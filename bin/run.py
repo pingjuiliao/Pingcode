@@ -6,9 +6,11 @@ import argparse
 algorithm_list = {
     'num_bst': 'pingcode.dynamic_programming.catalan.NumBST',
     'knapsack1': 'pingcode.dynamic_programming.knapsack.KnapsackUnboundedProduct',
+    'knapsack2': 'pingcode.dynamic_programming.knapsack.KnapsackBoundedProduct',
     'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
     'bitstring': 'pingcode.dynamic_programming.string_combination.BitstringNoConsecutiveOnes',
     'dijkstra': 'pingcode.graph.shortest_path.ShortestPath',
+    'tsp': 'pingcode.graph.tsp.TravelingSalesman',
     'kbest_pair': 'pingcode.kbest.kbest_pair.KBestPairFromTwoList',
     'dream_team': 'pingcode.kbest.dream_team.DreamTeam',
     'mergesort': 'pingcode.sorting.mergesort.MergeSort',
