@@ -12,7 +12,10 @@ class Problem(object):
     def add_testcase(self, test_in, test_out):
         self.testcases.append((test_in, test_out))
 
-    def evaluate(self):
+    def evaluate(self, solution, test_out):
+        return solution == test_out
+
+    def show_result(self):
         passed = 0
         for i, o in self.testcases:
             my_solve = self.solve(i)
@@ -20,7 +23,7 @@ class Problem(object):
             print(f"Input: {i}")
             print(f"Output: {my_solve}")
             print(f"Expected: {o}")
-            if my_solve == o:
+            if self.evaluate(my_solve, o):
                 print("[Correct]")
                 passed += 1
             else:

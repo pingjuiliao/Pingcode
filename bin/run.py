@@ -56,7 +56,7 @@ def run_algorithm(args):
 
     # Problem & Solve
     problem = AlgorithmProblem()
-    problem.evaluate()
+    problem.show_result()
 
 
 if __name__ == '__main__':
