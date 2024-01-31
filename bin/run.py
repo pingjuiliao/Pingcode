@@ -9,6 +9,8 @@ algorithm_list = {
     'knapsack2': 'pingcode.dynamic_programming.knapsack.KnapsackBoundedProduct',
     'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
     'rna_max': 'pingcode.dynamic_programming.rna.RNAMaximumPairs',
+    'powerset': 'pingcode.exponential.powerset.Powerset',
+    'powerset_dup': 'pingcode.exponential.powerset.PowersetWithDuplicate',
     'rna_combination': 'pingcode.dynamic_programming.rna.RNAStructureCombination',
     'rna_kbest': 'pingcode.dynamic_programming.rna.RNAKbestPairs',
     'bitstring': 'pingcode.dynamic_programming.string_combination.BitstringNoConsecutiveOnes',

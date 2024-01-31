@@ -172,33 +172,48 @@ class RNAKbestPairs(Problem):
         for sub_l in range(2, len(rna) + 1):
             for start in range(len(rna) - sub_l + 1):
                 end = start + sub_l - 1
-                pq = dp[start][sub_l]
-                for num_pair, pattern in dp[start][sub_l - 1]:
-                    self.pq_update(pq, k, (num_pair, pattern + '.'))
 
+                # inherit from dp[start][sub_l - 1]
+                pq_sub = dp[start][sub_l - 1]
+                max_num_pair = pq_sub[0][1]
+                candids = [(-max_num_pair, max_num_pair, pq_sub, None)]
+
+                # for each 'prefix(infix)' pattern add to heap
                 for prefix_l in range(sub_l - 1):
                     infix_l = max(sub_l - prefix_l - 2, 0)
                     i = start + prefix_l
                     if not is_pair(rna[i], rna[end]):
                         continue
+                    pq_prefix = dp[start][prefix_l]
+                    pq_infix = dp[i + 1][infix_l]
+                    max_num_pair = pq_prefix[0][1] + pq_infix[0][1] + 1
+                    heapq.heappush(
+                        candids,
+                        (-max_num_pair, max_num_pair, pq_prefix, pq_infix))
+                    )
 
-                    for prefix_pair, prefix in dp[start][prefix_l]:
-                        for infix_pair, infix in dp[i + 1][infix_l]:
-                            num_pair = prefix_pair + infix_pair + 1
-                            pattern = prefix + '(' + infix + ')'
-                            self.pq_update(pq, k, (num_pair, pattern))
+                # select k from candidates
+                # make a third copy here for recover previous results
+                kbest = []
+                while len(kbest) < k:
+                    _, num_pair, pq_prefix, pq_infix = heapq.heappop(candids)
+                    _, prefix_pair, prefix = heapq.heappop(pq_prefix)
+                    if pq_infix is None:
+                    else:
+                        _, infix_pair, infix = heapq.heappop(pq_infix)
 
-        return sorted(dp[0][len(rna)])
+        return dp[0][len(rna)]
 
-    def pq_update(self, pq, k, entry):
-        heapq.heappush(pq, entry)
-        if len(pq) > k:
-            heapq.heappop(pq)
 
     def import_testcases(self):
-        rna = 'UCAGAGGCAUCAAACCU'
-        k = 300
-        out = [(2, '((.))'), (1, '(...)'), (1, '..(.)')]
+        rna = 'ACAGU'
+        k = 10
+        out = [(2, '((.))'), (1, '.(.).'), (1, '(...)'), (1, '..(.)'), (1, '...()'), (0, '.....')]
+        self.add_testcase((rna, k), out)
+
+        rna = 'AGGCAUCAAACCCUGCAUGGGAGCG'
+        k = 10
+        out = [(10, '.(()())...((((()()))).())'), (10, '.(()())...(((()(()))).())'), (10, '.(()())...((((())())).())'), (10, '.(()())...((((()()))).)()'), (10, '.(()())...(((()(()))).)()'), (10, '.(()())...((((())())).)()'), (9, '.(()())...((((()()))).)..'), (9, '.(()())...(((()(()))).)..'), (9, '.(()()(...((((()).))).)).'), (9, '.(()()(...(((().()))).)).')]
         self.add_testcase((rna, k), out)
 
     def solve(self, test_in):
