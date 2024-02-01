@@ -46,6 +46,9 @@ class Powerset(Problem):
 
 class PowersetWithDuplicate(Problem):
     def get_powerset(self, nums):
+        """
+        It turns out that backtracking is the most efficient way to sovle this.
+        """
         self.counter = collections.Counter(nums)
 
         self.result = []
