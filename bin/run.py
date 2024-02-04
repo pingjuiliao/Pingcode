@@ -7,6 +7,8 @@ algorithm_list = {
     'num_bst': 'pingcode.dynamic_programming.catalan.NumBST',
     'knapsack1': 'pingcode.dynamic_programming.knapsack.KnapsackUnboundedProduct',
     'knapsack2': 'pingcode.dynamic_programming.knapsack.KnapsackBoundedProduct',
+    'longest_palindrome': 'pingcode.dynamic_programming.longest_substring.LongestPalindrome',
+    'longest_parenthesis': 'pingcode.dynamic_programming.longest_substring.LongestParenthesis',
     'mis': 'pingcode.dynamic_programming.max_independent_set.MaxIndependentSet',
     'rna_max': 'pingcode.dynamic_programming.rna.RNAMaximumPairs',
     'powerset': 'pingcode.exponential.powerset.Powerset',
