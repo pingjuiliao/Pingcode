@@ -5,6 +5,7 @@ import argparse
 
 algorithm_list = {
     'num_bst': 'pingcode.dynamic_programming.catalan.NumBST',
+    'interleave': 'pingcode.dynamic_programming.interleaving.InterleavingString',
     'knapsack1': 'pingcode.dynamic_programming.knapsack.KnapsackUnboundedProduct',
     'knapsack2': 'pingcode.dynamic_programming.knapsack.KnapsackBoundedProduct',
     'longest_palindrome': 'pingcode.dynamic_programming.longest_substring.LongestPalindrome',
