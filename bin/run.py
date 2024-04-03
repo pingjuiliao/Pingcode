@@ -23,6 +23,9 @@ algorithm_list = {
     'dream_team': 'pingcode.kbest.dream_team.DreamTeam',
     'mergesort': 'pingcode.sorting.mergesort.MergeSort',
     'quicksort': 'pingcode.sorting.quicksort.QuickSort',
+    'num_subarray_product_less_than_k': 'pingcode.sliding_window.combinations.TotalSubarrayProductLessThanK',
+    'num_subarray_frequency_at_least_k': 'pingcode.sliding_window.combinations.TotalSubarrayWithAtLeastKMaxElement',
+    'longest_subarray_frequency_at_most_k': 'pingcode.sliding_window.longest_subarray.LongestSubarrayWithAtMostKFrequency',
 }
 
 
