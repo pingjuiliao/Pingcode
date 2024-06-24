@@ -73,46 +73,6 @@ class TotalSubarrayWithAtLeastKMaxElement(Problem):
         return self.count_subarrays(nums, k)
 
 
-class TotalSubarrayWithExactKDistinctInteger(Problem):
-    def subarray_with_k_distinct(self, nums, k):
-        return (self.subarray_with_at_most_k(nums, k) -
-                self.subarray_with_at_most_k(nums, k - 1))
-
-    def subarray_with_at_most_k(self, nums, k):
-        total_subarray = 0
-        frequency = collections.Counter()
-
-        start = 0
-        distinct = 0
-        for end, num in enumerate(nums):
-            frequency[num] += 1
-            if frequency[num] == 1:
-                distinct += 1
-
-            while distinct > k:
-                frequency[nums[start]] -= 1
-                if frequency[nums[start]] == 0:
-                    distinct -= 1
-                start += 1
-
-            total_subarray += end - start + 1
-
-        return total_subarray
-
-
-    def import_testcases(self):
-        test_in = ([1,2,1,2,3], 2)
-        self.add_testcase(test_in, 7)
-
-        test_in = ([1,2,1,3,4], 3)
-        self.add_testcase(test_in, 3)
-
-
-    def solve(self, test_in):
-        nums, k = test_in
-        return self.subarray_with_k_distinct(nums, k)
-
-
 class TotalSubarrayWithFixedBounds(Problem):
     def subarray_fixed_bounds(self, nums, min_k, max_k):
         total_subarray = 0

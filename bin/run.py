@@ -25,8 +25,9 @@ algorithm_list = {
     'quicksort': 'pingcode.sorting.quicksort.QuickSort',
     'num_subarray_product_less_than_k': 'pingcode.sliding_window.combinations.TotalSubarrayProductLessThanK',
     'num_subarray_frequency_at_least_k': 'pingcode.sliding_window.combinations.TotalSubarrayWithAtLeastKMaxElement',
-    'num_subarray_distinct_exact_k': 'pingcode.sliding_window.combinations.TotalSubarrayWithExactKDistinctInteger',
     'num_subarray_fixed_bounds': 'pingcode.sliding_window.combinations.TotalSubarrayWithFixedBounds',
+    'num_subarray_distinct_exact_k': 'pingcode.sliding_window.combinations_exact.TotalSubarrayWithExactKDistinctInteger',
+    'nice_subarray': 'pingcode.sliding_window.combinations_exact.NumNiceSubarray',
     'longest_subarray_frequency_at_most_k': 'pingcode.sliding_window.longest_subarray.LongestSubarrayWithAtMostKFrequency',
 }
 
