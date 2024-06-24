@@ -29,6 +29,7 @@ algorithm_list = {
     'num_subarray_distinct_exact_k': 'pingcode.sliding_window.combinations_exact.TotalSubarrayWithExactKDistinctInteger',
     'nice_subarray': 'pingcode.sliding_window.combinations_exact.NumNiceSubarray',
     'longest_subarray_frequency_at_most_k': 'pingcode.sliding_window.longest_subarray.LongestSubarrayWithAtMostKFrequency',
+    'k_consecutive_bitflip': 'pingcode.sliding_window.bitflip.MinimumNumberOfConsecutiveBitflip'
 }
 
 
