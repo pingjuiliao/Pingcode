@@ -26,6 +26,7 @@ algorithm_list = {
     'num_subarray_product_less_than_k': 'pingcode.sliding_window.combinations.TotalSubarrayProductLessThanK',
     'num_subarray_frequency_at_least_k': 'pingcode.sliding_window.combinations.TotalSubarrayWithAtLeastKMaxElement',
     'num_subarray_fixed_bounds': 'pingcode.sliding_window.combinations.TotalSubarrayWithFixedBounds',
+    'num_substr_no_duplicate_fixed_length': 'pingcode.sliding_window.combinations.TotalKLengthSubstringWithNoDuplicate',
     'num_subarray_distinct_exact_k': 'pingcode.sliding_window.combinations_exact.TotalSubarrayWithExactKDistinctInteger',
     'nice_subarray': 'pingcode.sliding_window.combinations_exact.NumNiceSubarray',
     'longest_subarray_frequency_at_most_k': 'pingcode.sliding_window.longest_subarray.LongestSubarrayWithAtMostKFrequency',

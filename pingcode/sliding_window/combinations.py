@@ -114,3 +114,39 @@ class TotalSubarrayWithFixedBounds(Problem):
     def solve(self, test_in):
         nums, min_k, max_k = test_in
         return self.subarray_fixed_bounds(nums, min_k, max_k)
+
+
+class TotalKLengthSubstringWithNoDuplicate(Problem):
+    def leetcode_id(self):
+        return 1100
+
+    def description(self):
+        return """
+                Given a string and a number k, find the number of substring with length k without duplicated character."""
+
+    def num_non_duplicated_substring(self, s, k):
+        num_substrings = 0
+        start = 0
+        frequency = collections.Counter()
+        for end, character in enumerate(s):
+            frequency[character] += 1
+            while frequency[character] > 1:
+                frequency[s[start]] -= 1
+                start += 1
+
+            substring_length = end - start + 1
+            if substring_length >= k:
+                num_substrings += 1
+
+        return num_substrings
+
+    def import_testcases(self):
+        test_in = ("havefunonleetcode", 5)
+        self.add_testcase(test_in, 6)
+
+        test_in = ("home", 5)
+        self.add_testcase(test_in, 0)
+
+    def solve(self, test_in):
+        s, substring_length_k = test_in
+        return self.num_non_duplicated_substring(s, substring_length_k)
