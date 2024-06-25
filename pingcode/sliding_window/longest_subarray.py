@@ -37,3 +37,39 @@ class LongestSubarrayWithAtMostKFrequency(Problem):
     def solve(self, test_in):
         nums, k = test_in
         return self.max_subarray_length(nums, k)
+
+
+class LongestConsecutiveOnesAfterDeletingOneElement(Problem):
+    def leetcode_id(self):
+        return 1493
+
+    def description(self):
+        return """ return longest consecutive ones where you are allowed to delete one element """
+
+    def longest(self, nums):
+        max_length = 0
+        start = 0
+        zeros_in_window = 0
+        for end, num in enumerate(nums):
+            if num == 0:
+                zeros_in_window += 1
+
+            while zeros_in_window > 1:
+                if nums[start] == 0:
+                    zeros_in_window -= 1
+                start += 1
+
+            # Because we "must" delete one element:
+            # curr_window_length = (end - start + 1) - 1
+            max_length = max(max_length, end - start)
+
+        return max_length
+
+    def import_testcases(self):
+        self.add_testcase([1,1,0,1], 3)
+        self.add_testcase([1,1,1], 2)
+        self.add_testcase([0,1,1,1,0,1,1,0,1], 5)
+
+    def solve(self, test_in):
+        nums = test_in
+        return self.longest(nums)
