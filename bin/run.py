@@ -31,7 +31,8 @@ algorithm_list = {
     'nice_subarray': 'pingcode.sliding_window.combinations_exact.NumNiceSubarray',
     'longest_subarray_frequency_at_most_k': 'pingcode.sliding_window.longest_subarray.LongestSubarrayWithAtMostKFrequency',
     'longest_consecutive_ones_after_deletion': 'pingcode.sliding_window.longest_subarray.LongestConsecutiveOnesAfterDeletingOneElement',
-    'k_consecutive_bitflip': 'pingcode.sliding_window.bitflip.MinimumNumberOfConsecutiveBitflip'
+    'k_consecutive_bitflip': 'pingcode.sliding_window.bitflip.MinimumNumberOfConsecutiveBitflip',
+    'permute_string_match': 'pingcode.sliding_window.fixed_size_window.PermutationInString'
 }
 
 
