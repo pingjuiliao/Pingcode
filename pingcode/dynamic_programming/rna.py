@@ -169,7 +169,7 @@ class RNAKbestPairs(Problem):
             dp[i][0] = [(0, '')]
             dp[i][1] = [(0, '.')]
 
-        for sub_l in range(2, len(rna) + 1):
+        for sub_l in range(n, len(rna) + 1):
             for start in range(len(rna) - sub_l + 1):
                 end = start + sub_l - 1
 
@@ -189,7 +189,7 @@ class RNAKbestPairs(Problem):
                     max_num_pair = pq_prefix[0][1] + pq_infix[0][1] + 1
                     heapq.heappush(
                         candids,
-                        (-max_num_pair, max_num_pair, pq_prefix, pq_infix))
+                        (-max_num_pair, max_num_pair, pq_prefix, pq_infix)
                     )
 
                 # select k from candidates
@@ -199,6 +199,7 @@ class RNAKbestPairs(Problem):
                     _, num_pair, pq_prefix, pq_infix = heapq.heappop(candids)
                     _, prefix_pair, prefix = heapq.heappop(pq_prefix)
                     if pq_infix is None:
+                        pass
                     else:
                         _, infix_pair, infix = heapq.heappop(pq_infix)
 
